@@ -7,12 +7,18 @@
 //
 
 #import "AppDelegate.h"
+#import "HTDoodleViewController.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+	HTDoodleViewController *doodleViewController = [[HTDoodleViewController alloc] init];
+	UINavigationController *rootViewController = [[UINavigationController alloc] initWithRootViewController:doodleViewController];
+	self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+	self.window.backgroundColor = RGB(243, 243, 243);
+	self.window.rootViewController = rootViewController;
+	[self.window makeKeyAndVisible];
     return YES;
 }
 							
