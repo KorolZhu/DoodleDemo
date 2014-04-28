@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		459D2B17190DEC6B00688946 /* HTHandWritingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 459D2B16190DEC6B00688946 /* HTHandWritingView.m */; };
+		459D2B1A190DF41B00688946 /* HTImageEditView.m in Sources */ = {isa = PBXBuildFile; fileRef = 459D2B19190DF41B00688946 /* HTImageEditView.m */; };
+		459D2B20190E452800688946 /* cursor2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 459D2B1F190E452800688946 /* cursor2@2x.png */; };
+		459D2B22190E4DC000688946 /* cursor1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 459D2B21190E4DC000688946 /* cursor1@2x.png */; };
 		45B870B11908FDC10055F92B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45B870B01908FDC10055F92B /* Foundation.framework */; };
 		45B870B31908FDC10055F92B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45B870B21908FDC10055F92B /* CoreGraphics.framework */; };
 		45B870B51908FDC10055F92B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45B870B41908FDC10055F92B /* UIKit.framework */; };
@@ -100,6 +104,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		459D2B15190DEC6B00688946 /* HTHandWritingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTHandWritingView.h; sourceTree = "<group>"; };
+		459D2B16190DEC6B00688946 /* HTHandWritingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTHandWritingView.m; sourceTree = "<group>"; };
+		459D2B18190DF41B00688946 /* HTImageEditView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTImageEditView.h; sourceTree = "<group>"; };
+		459D2B19190DF41B00688946 /* HTImageEditView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTImageEditView.m; sourceTree = "<group>"; };
+		459D2B1F190E452800688946 /* cursor2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cursor2@2x.png"; sourceTree = "<group>"; };
+		459D2B21190E4DC000688946 /* cursor1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cursor1@2x.png"; sourceTree = "<group>"; };
 		45B870AD1908FDC10055F92B /* DoodleDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DoodleDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		45B870B01908FDC10055F92B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		45B870B21908FDC10055F92B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -332,6 +342,10 @@
 		45B870E61908FE7F0055F92B /* HandWriting */ = {
 			isa = PBXGroup;
 			children = (
+				459D2B18190DF41B00688946 /* HTImageEditView.h */,
+				459D2B19190DF41B00688946 /* HTImageEditView.m */,
+				459D2B15190DEC6B00688946 /* HTHandWritingView.h */,
+				459D2B16190DEC6B00688946 /* HTHandWritingView.m */,
 			);
 			path = HandWriting;
 			sourceTree = "<group>";
@@ -363,6 +377,8 @@
 		45B871041908FF0E0055F92B /* Image */ = {
 			isa = PBXGroup;
 			children = (
+				459D2B21190E4DC000688946 /* cursor1@2x.png */,
+				459D2B1F190E452800688946 /* cursor2@2x.png */,
 				45B871051908FF240055F92B /* doodle_color_transparency.png */,
 				45B871061908FF240055F92B /* doodle_color_transparency@2x.png */,
 				45B871071908FF240055F92B /* doodle_pop_up_triangle@2x.png */,
@@ -611,6 +627,7 @@
 				45B8714A1908FF240055F92B /* doodle_pan_size_handle@2x.png in Resources */,
 				45B871401908FF240055F92B /* doodle_color_select@2x.png in Resources */,
 				45B8713B1908FF240055F92B /* common_white_btn.png in Resources */,
+				459D2B22190E4DC000688946 /* cursor1@2x.png in Resources */,
 				45B8714E1908FF240055F92B /* doodle_pan@2x.png in Resources */,
 				45B871471908FF240055F92B /* doodle_pan_size_frame.png in Resources */,
 				45B871431908FF240055F92B /* doodle_eraser.png in Resources */,
@@ -619,6 +636,7 @@
 				45B871341908FF240055F92B /* doodle_color_transparency@2x.png in Resources */,
 				45B870BB1908FDC10055F92B /* InfoPlist.strings in Resources */,
 				45B871561908FF240055F92B /* doodle_set_color_colordisc@2x.png in Resources */,
+				459D2B20190E452800688946 /* cursor2@2x.png in Resources */,
 				45B871361908FF240055F92B /* doodle_pop_up_triangle.png in Resources */,
 				45B871521908FF240055F92B /* doodle_redo@2x.png in Resources */,
 			);
@@ -642,6 +660,7 @@
 				45B870F31908FEA20055F92B /* _HTDoodleDrawView.m in Sources */,
 				45B871011908FEC10055F92B /* HTAlphaSlider.m in Sources */,
 				45B870F51908FEA20055F92B /* HTDoodleViewController.m in Sources */,
+				459D2B17190DEC6B00688946 /* HTHandWritingView.m in Sources */,
 				45B8717E190902050055F92B /* HSV.c in Sources */,
 				45B870C11908FDC10055F92B /* AppDelegate.m in Sources */,
 				45B8716A1909011D0055F92B /* HTImagePickerController.m in Sources */,
@@ -662,6 +681,7 @@
 				45B871641908FFA80055F92B /* UIDevice+HT.m in Sources */,
 				45B870F21908FEA20055F92B /* HTBezierPath.m in Sources */,
 				45B87194190908250055F92B /* UIView+HT.m in Sources */,
+				459D2B1A190DF41B00688946 /* HTImageEditView.m in Sources */,
 				45B870F41908FEA20055F92B /* HTDoodleDrawView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -859,6 +879,7 @@
 				45B870E11908FDC10055F92B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		45B870E21908FDC10055F92B /* Build configuration list for PBXNativeTarget "DoodleDemoTests" */ = {
 			isa = XCConfigurationList;
@@ -867,6 +888,7 @@
 				45B870E41908FDC10055F92B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

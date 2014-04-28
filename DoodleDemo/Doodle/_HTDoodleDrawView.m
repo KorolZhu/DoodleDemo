@@ -106,6 +106,16 @@
 	}
 }
 
+- (UIImage *)done {
+	UIGraphicsBeginImageContextWithOptions(self.bounds.size, NO, 0);
+    [self.layer renderInContext:UIGraphicsGetCurrentContext()];
+    UIImage *viewImage = UIGraphicsGetImageFromCurrentImageContext();
+	
+    UIGraphicsEndImageContext();
+	
+	return viewImage;
+}
+
 - (CGPoint)calculateMidPointForPoint:(CGPoint)p1 andPoint:(CGPoint)p2 {
     return CGPointMake((p1.x + p2.x) / 2.0, (p1.y + p2.y) / 2.0);
 }
@@ -151,7 +161,6 @@
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-    self.empty = NO;
 	if (isUndo) {
 		[self cacheCurrentDrawing];
 		isUndo = NO;
@@ -160,10 +169,16 @@
     UITouch *touch = [touches anyObject];
     _previousPoint = [touch locationInView:self];
 	
-	[self.delegate doodleDrawViewDidStartDraw:self];
+	if ([self.delegate respondsToSelector:@selector(doodleDrawViewDidStartDraw:)]) {
+		[self.delegate doodleDrawViewDidStartDraw:self];
+	}
 }
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
+	if (self.empty) {
+		self.empty = NO;
+	}
+
     UITouch *touch = [touches anyObject];
     
     _prePreviousPoint = _previousPoint;
@@ -187,7 +202,11 @@
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
 	
 	if (_drawingPath.isEmpty) {
-		if ([self.delegate doodleDrawViewWillStartDraw:self]) {
+		if ([self.delegate respondsToSelector:@selector(doodleDrawViewWillStartDraw:)] && [self.delegate doodleDrawViewWillStartDraw:self]) {
+			
+			if (self.empty) {
+				self.empty = NO;
+			}
 
 			[_drawingPath addArcWithCenter:_previousPoint radius:0.5f startAngle:0.0f endAngle:M_PI * 2  clockwise:YES];
 			[self setNeedsDisplayInRect:CGRectMake(_previousPoint.x - self.lineWidth,
@@ -195,6 +214,10 @@
 												   self.lineWidth * 2,
 												   self.lineWidth * 2)];
 		}
+	}
+	
+	if ([self.delegate respondsToSelector:@selector(doodleDrawViewDidEndDraw:)]) {
+		[self.delegate doodleDrawViewDidEndDraw:self];
 	}
 		
 	if (!_drawingPath.isEmpty) {

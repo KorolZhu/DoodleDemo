@@ -10,6 +10,7 @@
 #define DoodleDemo_HTCategory_h
 
 #import "UIDevice+HT.h"
+#import "UIImage-Extension.h"
 #import "UIColor+HT.h"
 #import "UIView+HT.h"
 #import "NSObject+HT.h"

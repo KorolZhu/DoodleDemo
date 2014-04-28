@@ -22,12 +22,16 @@
 - (void)clearDrawing;
 - (void)undo;
 - (void)redo;
+- (UIImage *)done;
 
 @end
 
 @protocol HTDoodleDrawViewDelegate <NSObject>
 
+@optional
+
 - (BOOL)doodleDrawViewWillStartDraw:(_HTDoodleDrawView *)drawView;
 - (void)doodleDrawViewDidStartDraw:(_HTDoodleDrawView *)drawView;
+- (void)doodleDrawViewDidEndDraw:(_HTDoodleDrawView *)drawView;
 
 @end
