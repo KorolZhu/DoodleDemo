@@ -8,12 +8,14 @@
 
 #import "AppDelegate.h"
 #import "HTDoodleViewController.h"
+#import "HTWhiteBoradViewController.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-	HTDoodleViewController *doodleViewController = [[HTDoodleViewController alloc] init];
+//	HTDoodleViewController *doodleViewController = [[HTDoodleViewController alloc] init];
+	HTWhiteBoradViewController *doodleViewController = [[HTWhiteBoradViewController alloc] init];
 	UINavigationController *rootViewController = [[UINavigationController alloc] initWithRootViewController:doodleViewController];
 	self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 	self.window.backgroundColor = RGB(243, 243, 243);

@@ -24,11 +24,15 @@
 
 @implementation HTImageEditView
 
+@synthesize editable = _editable;
+
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
 		images = [NSMutableArray array];
+		_empty = YES;
+		_editable = YES;
 //		cursor = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 2.0f, KHEIGHT - 4.0f)];
 //		cursor.backgroundColor = [UIColor blueColor];
 //		CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"opacity"];
@@ -47,6 +51,25 @@
         [self addSubview:cursor];
     }
     return self;
+}
+
+- (BOOL)isEmpty {
+	return images.count == 0;
+}
+
+- (void)setEditable:(BOOL)editable {
+	_editable = editable;
+	if (_editable) {
+		cursor.hidden = NO;
+		[cursor startAnimating];
+	} else {
+		cursor.hidden = YES;
+		[cursor stopAnimating];
+	}
+}
+
+- (BOOL)isEditable {
+	return _editable;
 }
 
 - (CGPoint)validateDrawPoint:(CGPoint)point {
@@ -85,6 +108,8 @@
 	image = [image imageByScalingProportionallyToSize:CGSizeMake(KWIDTH, KHEIGHT)];
 	[images addObject:image];
 	[self setNeedsDisplay];
+	
+	self.empty = NO;
 }
 
 - (void)newline {
@@ -95,6 +120,8 @@
 	}
 	
 	[self setNeedsDisplay];
+	
+	self.empty = NO;
 }
 
 - (void)backspace {
@@ -113,14 +140,22 @@
 	[images removeObjectsInRange:range];
 	
 	[self setNeedsDisplay];
+	
+	if (images.count == 0) {
+		self.empty = YES;
+	}
 }
 
 - (UIImage *)done {
+	self.editable = NO;
+	
 	UIGraphicsBeginImageContextWithOptions(self.bounds.size, NO, 0);
     [self.layer renderInContext:UIGraphicsGetCurrentContext()];
     UIImage *viewImage = UIGraphicsGetImageFromCurrentImageContext();
 	
     UIGraphicsEndImageContext();
+	
+	self.editable = YES;
 	
 	return viewImage;
 }
@@ -128,6 +163,7 @@
 - (void)clearDrawing {
 	[images removeAllObjects];
 	[self setNeedsDisplay];
+	self.empty = YES;
 }
 
 @end

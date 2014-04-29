@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HTImageEditView.h"
 
-@class _HTDoodleDrawView;
 @protocol HTDoodleDrawViewDelegate;
 
 @interface HTHandWritingView : UIView
@@ -16,7 +16,8 @@
 @property (nonatomic, assign) CGFloat lineWidth;
 @property (nonatomic, strong) UIColor *lineColor;
 @property (nonatomic, readonly, getter = isEmpty) BOOL empty;
-@property (nonatomic, strong) _HTDoodleDrawView *drawview;
+@property (nonatomic, strong) HTImageEditView *imageEditView;
+;
 @property (nonatomic, weak)id<HTDoodleDrawViewDelegate> delegate;
 
 - (void)clearDrawing;

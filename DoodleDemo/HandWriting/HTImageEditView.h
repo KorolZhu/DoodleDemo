@@ -11,6 +11,7 @@
 @interface HTImageEditView : UIView
 
 @property (nonatomic, getter = isEmpty) BOOL empty;
+@property (nonatomic, getter=isEditable) BOOL editable;
 
 - (void)addImage:(UIImage *)image;
 - (void)newline;

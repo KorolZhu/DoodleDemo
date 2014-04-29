@@ -12,8 +12,7 @@
 
 @interface HTHandWritingView ()<HTDoodleDrawViewDelegate>
 {
-	HTImageEditView *_imageEditView;
-	
+	_HTDoodleDrawView *_drawview;
 	NSTimer *timer;
 }
 
@@ -63,7 +62,7 @@
 }
 
 - (void)clearDrawing {
-	[_drawview clearDrawing];
+	[_imageEditView clearDrawing];
 }
 
 - (void)newline {
